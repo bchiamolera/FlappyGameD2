@@ -8,6 +8,8 @@ public class PipeSpawner : MonoBehaviour
 
     private float timer;
 
+    public float heightRange;
+
     void Start()
     {
         timer = 0;
@@ -26,7 +28,7 @@ public class PipeSpawner : MonoBehaviour
 
     void SpawnPipe()
     {
-        Vector3 spawnPos = transform.position;
+        Vector3 spawnPos = transform.position + new Vector3(0, Random.Range(-heightRange, heightRange), 0);
         GameObject pipe = Instantiate(pipePrefab, spawnPos, Quaternion.identity);
 
         Destroy(pipe, 10f);
