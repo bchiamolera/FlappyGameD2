@@ -13,7 +13,6 @@ public class PipeSpawner : MonoBehaviour
         timer = 0;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (timer > delay)
@@ -28,6 +27,8 @@ public class PipeSpawner : MonoBehaviour
     void SpawnPipe()
     {
         Vector3 spawnPos = transform.position;
-        Instantiate(pipePrefab, spawnPos, Quaternion.identity);
+        GameObject pipe = Instantiate(pipePrefab, spawnPos, Quaternion.identity);
+
+        Destroy(pipe, 10f);
     }
 }
