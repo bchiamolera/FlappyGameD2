@@ -25,4 +25,12 @@ public class PlayerControl : MonoBehaviour
     {
         rb.linearVelocity = Vector3.up * velocity;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Collidable"))
+        {
+            FindFirstObjectByType<GameManager>().GameOver();
+        }
+    }
 }
